@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>eLwazi — Metrics Observatory</title>
+<meta name="description" content="Live indicators for the eLwazi research data infrastructure programme.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+Condensed:wght@600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="scanline" aria-hidden="true"></div>
+
+<header class="masthead">
+  <div class="masthead-inner">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">⌬</span>
+      <div class="brand-text">
+        <h1>eLwazi <span class="brand-sub">Metrics Observatory</span></h1>
+        <p class="brand-tagline">Live readings from a federated research data infrastructure</p>
+      </div>
+    </div>
+    <div class="masthead-status">
+      <div class="status-row">
+        <span class="status-dot" id="status-dot"></span>
+        <span id="status-text">Connecting to source…</span>
+      </div>
+      <div class="status-row status-updated" id="last-updated"></div>
+    </div>
+  </div>
+</header>
+
+<nav class="cadence-strip" aria-label="Measurement cadence legend">
+  <div class="cadence-strip-inner">
+    <span class="cadence-strip-label">Cadence</span>
+    <span class="cadence-chip cadence-monthly">● Monthly</span>
+    <span class="cadence-chip cadence-quarterly">● Quarterly</span>
+    <span class="cadence-chip cadence-6months">● Bi-annual</span>
+    <span class="cadence-chip cadence-yearly">● Annual</span>
+  </div>
+</nav>
+
+<main id="app">
+  <section class="readout-strip" id="readout-strip" aria-label="Headline totals">
+    <div class="readout-strip-inner" id="readout-cards"></div>
+  </section>
+
+  <section class="focus-areas" id="focus-areas" aria-label="Metrics by focus area"></section>
+
+  <section class="appendix" id="appendix-section">
+    <h2 class="appendix-title">Full indicator log</h2>
+    <p class="appendix-note">Every metric tracked, including narrative and pending entries not yet reduced to a single number.</p>
+    <div class="table-wrap">
+      <table id="full-table">
+        <thead>
+          <tr>
+            <th>Focus area</th>
+            <th>Metric</th>
+            <th>Reading</th>
+            <th>Frequency</th>
+            <th>Working group</th>
+          </tr>
+        </thead>
+        <tbody id="full-table-body"></tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p>Data sourced live from a published spreadsheet · <a href="#" id="source-link" target="_blank" rel="noopener">view source sheet</a></p>
+  <p class="footer-fine">Update the linked sheet to change any figure on this page — no redeploy needed.</p>
+</footer>
+
+<template id="tpl-focus-block">
+  <article class="focus-block">
+    <header class="focus-header">
+      <span class="focus-index"></span>
+      <h2 class="focus-title"></h2>
+      <span class="focus-count"></span>
+    </header>
+    <div class="focus-grid"></div>
+  </article>
+</template>
+
+<template id="tpl-metric-card">
+  <div class="metric-card">
+    <div class="metric-card-top">
+      <span class="metric-cadence-dot"></span>
+      <span class="metric-wg"></span>
+    </div>
+    <div class="metric-value"></div>
+    <div class="metric-label"></div>
+    <div class="metric-breakdown"></div>
+    <div class="metric-meta"></div>
+  </div>
+</template>
+
+<script src="js/config.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
