@@ -1,4 +1,4 @@
-# eLwazi Metrics Observatory
+# eLwazi Metrics Dashboard
 
 A live, public dashboard for your project's indicators — hosted free on GitHub Pages, fed by a Google Sheet you edit like any spreadsheet. No code editing needed after setup.
 
